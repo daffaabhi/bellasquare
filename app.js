@@ -40,11 +40,11 @@ type koneksi : single,pool and request
 -------------------------------------------*/
 app.use(
     connection(mysql, {
-        host: 'localhost',
-        user: 'root', // your mysql user
-        password: '', // your mysql password
+        host: 'remotemysql.com',
+        user: 'tZRXtzsvl7', // your mysql user
+        password: 'Y6JCq27UQ4', // your mysql password
         port: 3306, //port mysql
-        database: 'mydb' // your database name
+        database: 'tZRXtzsvl7' // your database name
     }, 'pool') //or single
 );
 app.use('/', index);
