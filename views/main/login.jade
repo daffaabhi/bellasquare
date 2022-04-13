@@ -1,0 +1,53 @@
+doctype html
+html
+	head
+		title
+			| #{title}
+		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport')
+		link(rel='stylesheet', href='/adminlte/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/font-awesome/css/font-awesome.css')
+		link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css')
+		link(rel='stylesheet', href='/adminlte/dist/css/AdminLTE.min.css')
+		link(rel='stylesheet', href='/adminlte/plugins/iCheck/square/blue.css')
+	body.hold-transition.login-page(style="background: url('https://pngimage.net/wp-content/uploads/2018/05/background-biru-putih-png-3.png'); background-attachment:fixed;")
+		.login-box
+			.login-logo
+				a(href='#')
+				b(style="color:white")
+						| Bella SQUARE
+			.login-box-body(style="background-color: #ffffff00; -webkit-backdrop-filter: blur(5px);")
+				p.login-box-msg(style="color:Snow; font-size: 30px;text-align:center;")
+					| Form Login 
+				form(action="/login/",method="post")
+					- if (messages.msg_error) 
+						.alert.alert-danger.alert-dismissable 
+							button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+								| ×
+							h4
+								i.icon.fa.fa-ban
+								| Alert! 
+							| !{messages.msg_error}
+					.form-group.has-feedback
+						input(type="email",placeholder="Email",name="txtEmail",value="").form-control
+						span.glyphicon.glyphicon-envelope.form-control-feedback
+					.form-group.has-feedback
+						input(type="password",placeholder="Password",name="txtPassword",value="").form-control
+						span.glyphicon.glyphicon-lock.form-control-feedback
+					.row
+						.col-xs-1 
+						.col-xs-7
+							.checkbox.icheck
+								label
+									input(type="checkbox")
+									|  Remember Me
+						.col-xs-12
+							button(type="submit").btn.btn-success.btn-block.btn-flat
+								| Sign In
+							a(href='/register').btn.btn-danger.btn-block.btn-flat
+								| Register
+							
+
+script(type='text/javascript', src='/adminlte/plugins/jQuery/jquery-2.2.3.min.js')
+script(type='text/javascript', src='/adminlte/bootstrap/js/bootstrap.min.js')
+script(type='text/javascript', src='/adminlte/plugins/iCheck/icheck.min.js')
+script(type='text/javascript', src='/adminlte/dist/js/login.js')

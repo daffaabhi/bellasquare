@@ -1,0 +1,56 @@
+extends ../layout/base
+block content
+    section.content-header
+        h1
+            | Tambah Barang
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    | Stok Barang
+                li.active Tambah Barang
+    section.content
+        .box
+            .box-header.with-border
+                h3.box-title
+                    | Barang
+                .box-tools.pull-right
+                    button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+                        i.fa.fa-minus
+
+            .box-body
+                form(role='form',method='post' action='/databarang/add')
+                    .row
+
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', data-dismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.fa.fa-circle-exclamation
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group
+                                    label
+                                        | Nama Barang
+                                    input(type='text',name='nama_barang',placeholder='Masukan Nama Barang', autofocus).form-control
+                                .form-group
+                                    label
+                                        | Harga
+                                    input(type='text',name='harga',placeholder='Masukan Harga Barang').form-control
+                                .form-group
+                                    label
+                                        | Stok
+                                    input(type='text',name='stok',placeholder='Masukan Stok Barang').form-control
+                                .form-group
+                                    label
+                                        | Jenis Barang
+                                    input(type='text',name='jenis_barang',placeholder='Masukan Jenis Barang').form-control
+                            .box-footer
+                                button(type='submit').btn.btn-success
+                                    | Tambah
+
+                                a(href='/databarang/data').btn.btn-primary.pull-right
+                                    | Kembali
